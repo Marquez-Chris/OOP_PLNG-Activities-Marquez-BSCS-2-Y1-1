@@ -11,6 +11,12 @@ public class MarquezLab2W7 {
 
         System.out.print("Enter the number of pages read so far: ");
         int pagesRead = scanner.nextInt();
+        
+        if (pagesRead > totalPages){
+            System.out.println("Total pages cannot be less than pages read");
+            scanner.close();
+            return;
+        }
 
         System.out.print("Enter the number of days you have been reading: ");
         int daysReading = scanner.nextInt();
@@ -26,11 +32,11 @@ public class MarquezLab2W7 {
 
         int remainingPages = totalPages - pagesRead;
         double pagesPerDayNeeded = 0;
-        
+        int pagesNeeded = (int)pagesPerDayNeeded;
         if (remainingDays > 0) {
             pagesPerDayNeeded = (double) remainingPages / remainingDays;
         }
-        int pagened = (int)pagesPerDayNeeded;
+    
 
         System.out.println("\n--- Library System Report ---");
         System.out.printf("1. Percentage of the book read: %.2f%%\n", percentageRead);
@@ -41,10 +47,12 @@ public class MarquezLab2W7 {
         } else if (remainingDays <= 0) {
             System.out.println("3. Your borrowing period is up or overdue! You need to return the book.");
         } else {
-            System.out.printf("3. Pages to read every day to finish on time: %.1f pages/day\n", pagened);
+            System.out.printf("3. Pages to read every day to finish on time: %.1f pages/day\n", pagesNeeded);
         }
 
         scanner.close();
     }
 }
+
+
 
